@@ -20,7 +20,9 @@ client.on('connect', function(connection) {
     connection.on('message', function(message) {
         if (message.type === 'utf8') {
             parseString(message.utf8Data, function (err, result) {
-                console.dir(result);
+                if (result.hasOwnProperty(nowSelectionUpdated)) {
+                    console.log(result.nowSelectionUpdated);
+                }
             });
         }
     });
