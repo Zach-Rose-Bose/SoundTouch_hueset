@@ -15,8 +15,8 @@ hue.nupnpSearch(function(err, result) {
 });
 
 function configureHue() {
-    console.log('get user...')
     if(hueUser === 'tbd') {
+        console.log('getting user...')
         hue.createUser(hueIP, description, function(err, user) {
             if (err) throw err;
             console.log(JSON.stringify(user));
