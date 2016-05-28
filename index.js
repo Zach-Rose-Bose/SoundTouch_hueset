@@ -1,9 +1,19 @@
 #!/usr/bin/env node
 var WebSocketClient = require('websocket').client;
 var parseString = require('xml2js').parseString;
+var hue = require("node-hue-api");
 var stIP = process.env.stIP;
 
 var client = new WebSocketClient();
+
+var displayBridges = function(bridge) {
+    console.log("Hue Bridges Found: " + JSON.stringify(bridge));
+};
+
+hue.nupnpSearch(function(err, result) {
+    if (err) throw err;
+    displayBridges(result);
+});
 
 client.on('connectFailed', function(error) {
     console.log('Connect Error: ' + error.toString());

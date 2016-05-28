@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/zwrose/hueset#readme",
   "dependencies": {
+    "node-hue-api": "^2.2.0",
     "websocket": "^1.0.23",
     "xml2js": "^0.4.16"
   }
