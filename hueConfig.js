@@ -17,7 +17,7 @@ function configureHue() {
     if(hueUser === 'tbd') {    
         hueapi.createUser(hueIP, description, function(err, user) {
             console.log('user response...')
-            if (err) throw err;
+            if (err) console.log(err);
             console.log(JSON.stringify(user));
         });
     } else {
