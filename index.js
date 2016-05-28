@@ -23,7 +23,7 @@ client.on('connect', function(connection) {
                 console.log(Object.getOwnPropertyNames(result.updates));
                 if (result.updates && result.updates.hasOwnProperty('nowSelectionUpdated')) {
                     console.log(result.updates.nowSelectionUpdated[0].preset);
-                    console.log(Object.getOwnPropertyNames(result.updates.nowSelectionUpdated[0].preset));
+                    console.log(Object.getOwnPropertyNames(result.updates.nowSelectionUpdated[0].preset[0]));
                 }
             });
         }
