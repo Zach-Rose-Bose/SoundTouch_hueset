@@ -11,7 +11,7 @@ var lightState = hue.lightState;
 
 var hueapi = new hueapiBase(hueIP, hueUser);
 
-var state = lightState.create().on().rgb(0,255,255).bri(255); // Aqua
+var state = lightState.create().on().rgb(30,142,255).bri(255); // Dodger Blue
 
 client.on('connectFailed', function(error) {
     console.log('Connect Error: ' + error.toString());
