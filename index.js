@@ -1,13 +1,15 @@
 #!/usr/bin/env node
 var WebSocketClient = require('websocket').client;
 var parseString = require('xml2js').parseString;
-var hueapi = require("node-hue-api").HueApi;
+var hueapiBase = require("node-hue-api").HueApi;
 var stIP = process.env.stIP;
 var hueIP = process.env.hueIP;
 var hueUser = process.env.hueUser;
 var client = new WebSocketClient();
 
+var hueapi = new hueapiBase(hueIP, hueUser);
 
+var state = lightState.create().on().rgb(0,0,255); // Blue
 
 client.on('connectFailed', function(error) {
     console.log('Connect Error: ' + error.toString());
@@ -27,7 +29,10 @@ client.on('connect', function(connection) {
                 if (result.updates && result.updates.hasOwnProperty('nowSelectionUpdated')) {
                     if(result.updates.nowSelectionUpdated[0].preset[0].$.id == 1) {
                         console.log('yep, preset 1');
-                        console.log('hueIP:', hueIP);
+                        hueapi.setLightState(1, state, function(err, lights) {
+                            if (err) throw err;
+                            console.log(lights);
+                        });
                     } else {
                         console.log('not 1, actually is:', result.updates.nowSelectionUpdated[0].preset[0].$.id);
                     }

@@ -10,7 +10,7 @@ hue.nupnpSearch(function(err, result) {
         console.log(err.message);
     } else {
         hueIP = result[0].ipaddress;
-        console.log('Bridge discovered. Press button on Hue Bridge now.')
+        console.log('Bridge discovered. Press the button on the Hue Bridge now.')
         setTimeout(configureHue, 10000);
     }
     
