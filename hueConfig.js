@@ -8,6 +8,7 @@ var hueapi = new hueapiBase();
 hue.nupnpSearch(function(err, result) {
     if (err) throw err;
     result = JSON.stringify(result)
+    console.log(result);
     hueIP = result[0].ipaddress;
     console.log('hueIP set as:', hueIP);
     console.log('Press button on Hue Bridge now.')
