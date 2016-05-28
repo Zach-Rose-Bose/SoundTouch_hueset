@@ -1,6 +1,6 @@
 var hue = require("node-hue-api");
 var hueapiBase = require("node-hue-api").HueApi;
-var description = 'hueset_proto'
+var description = 'hueset_prototype'
 var hueIP = 'tbd';
 var hueUser = 'tbd';
 var hueapi = new hueapiBase();
