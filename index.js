@@ -22,7 +22,7 @@ client.on('connect', function(connection) {
             parseString(message.utf8Data, function (err, result) {
                 console.log(Object.getOwnPropertyNames(result.updates));
                 if (result.updates && result.updates.hasOwnProperty('nowSelectionUpdated')) {
-                    console.log(result.updates.nowSelectionUpdated);
+                    console.log(result.updates.nowSelectionUpdated.preset);
                 }
             });
         }
