@@ -50,7 +50,7 @@ client.on('connect', function(connection) {
                             console.log(lights);
                         });
                     } else {
-                        console.log('not 1, actually is:', result.updates.nowSelectionUpdated[0].preset[0].$.id);
+                        console.log('not a hueset. Preset detected:', result.updates.nowSelectionUpdated[0].preset[0].$.id);
                     }
                 }
             });
