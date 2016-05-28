@@ -1,0 +1,19 @@
+{
+  "name": "hueset",
+  "version": "0.0.1",
+  "description": "prototyping pairing a SoundTouch preset with a hue bulb",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zwrose/hueset.git"
+  },
+  "author": "Zach Rose",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zwrose/hueset/issues"
+  },
+  "homepage": "https://github.com/zwrose/hueset#readme"
+}
