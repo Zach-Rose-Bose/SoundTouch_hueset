@@ -1,11 +1,13 @@
 #!/usr/bin/env node
 var WebSocketClient = require('websocket').client;
 var parseString = require('xml2js').parseString;
+var hue = require("node-hue-api");
 var hueapiBase = require("node-hue-api").HueApi;
 var stIP = process.env.stIP;
 var hueIP = process.env.hueIP;
 var hueUser = process.env.hueUser;
 var client = new WebSocketClient();
+var lightState = hue.lightState;
 
 var hueapi = new hueapiBase(hueIP, hueUser);
 
