@@ -11,7 +11,7 @@ var lightState = hue.lightState;
 
 var hueapi = new hueapiBase(hueIP, hueUser);
 
-var stateDT = lightState.create().on().rgb(0,206,209).bri(255); // Dark Turquoise
+var stateLSG = lightState.create().on().rgb(33,178,170).bri(255); // Light Sea Green
 var stateCT = lightState.create().on().rgb(127,255,0).bri(255); // Chartreuse
 var stateF = lightState.create().on().rgb(255,0,255).bri(255); // Fuschia
 
@@ -32,8 +32,8 @@ client.on('connect', function(connection) {
             parseString(message.utf8Data, function (err, result) {
                 if (result.updates && result.updates.hasOwnProperty('nowSelectionUpdated')) {
                     if(result.updates.nowSelectionUpdated[0].preset[0].$.id == 1) {
-                        console.log('preset 1, Dark Turquoise');
-                        hueapi.setLightState(1, stateDT, function(err, lights) {
+                        console.log('preset 1, Light Sea Green');
+                        hueapi.setLightState(1, stateLSG, function(err, lights) {
                             if (err) throw err;
                             console.log(lights);
                         });
