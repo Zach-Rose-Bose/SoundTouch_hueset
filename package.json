@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/zwrose/hueset/issues"
   },
-  "homepage": "https://github.com/zwrose/hueset#readme"
+  "homepage": "https://github.com/zwrose/hueset#readme",
+  "dependencies": {
+    "websocket": "^1.0.23"
+  }
 }
