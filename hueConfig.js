@@ -6,11 +6,14 @@ var hueUser = 'tbd';
 var hueapi = new hueapiBase();
 
 hue.nupnpSearch(function(err, result) {
-    if (err) throw err;
-    hueIP = result[0].ipaddress;
-    console.log('hueIP set as:', hueIP);
-    console.log('Press button on Hue Bridge now.')
-    configureHue();
+    if (err) {
+        console.log(err.message);
+    } else {
+        hueIP = result[0].ipaddress;
+        console.log('Bridge discovered. Press button on Hue Bridge now.')
+        setTimeout(configureHue, 10000);
+    }
+    
 });
 
 function configureHue() {
@@ -19,10 +22,11 @@ function configureHue() {
             console.log('Awaiting Link Button Press...')
             if (err) {
                 console.log(err.message);
-                setTimeout(configureHue, 1000);
+                setTimeout(configureHue, 5000);
             } else {
-                console.log(JSON.stringify(user));
-                console.log('hueIP set as:', hueUser);
+                hueUser = JSON.stringify(user);
+                console.log('hueUser set as:', hueUser);
+                console.log('hueIP set as:', hueIP);
             }
             
         });
