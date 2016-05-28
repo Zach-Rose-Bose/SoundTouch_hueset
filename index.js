@@ -11,7 +11,9 @@ var lightState = hue.lightState;
 
 var hueapi = new hueapiBase(hueIP, hueUser);
 
-var state = lightState.create().on().rgb(30,142,255).bri(255); // Dodger Blue
+var stateDT = lightState.create().on().rgb(0,206,209).bri(255); // Dark Turquoise
+var stateCT = lightState.create().on().rgb(127,255,0).bri(255); // Chartreuse
+var stateF = lightState.create().on().rgb(255,0,255).bri(255); // Fuschia
 
 client.on('connectFailed', function(error) {
     console.log('Connect Error: ' + error.toString());
@@ -30,8 +32,20 @@ client.on('connect', function(connection) {
             parseString(message.utf8Data, function (err, result) {
                 if (result.updates && result.updates.hasOwnProperty('nowSelectionUpdated')) {
                     if(result.updates.nowSelectionUpdated[0].preset[0].$.id == 1) {
-                        console.log('yep, preset 1');
-                        hueapi.setLightState(1, state, function(err, lights) {
+                        console.log('preset 1, Dark Turquoise');
+                        hueapi.setLightState(1, stateDT, function(err, lights) {
+                            if (err) throw err;
+                            console.log(lights);
+                        });
+                    } else if(result.updates.nowSelectionUpdated[0].preset[0].$.id == 2) {
+                        console.log('preset 2, fuschia');
+                        hueapi.setLightState(1, stateF, function(err, lights) {
+                            if (err) throw err;
+                            console.log(lights);
+                        });
+                    } else if(result.updates.nowSelectionUpdated[0].preset[0].$.id == 3) {
+                        console.log('preset 3, chartreuse');
+                        hueapi.setLightState(1, stateCT, function(err, lights) {
                             if (err) throw err;
                             console.log(lights);
                         });
