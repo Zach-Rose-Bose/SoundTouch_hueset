@@ -17,11 +17,16 @@ function configureHue() {
     if(hueUser === 'tbd') {    
         hueapi.createUser(hueIP, description, function(err, user) {
             console.log('user response...')
-            if (err) console.log(err);
-            console.log(JSON.stringify(user));
+            if (err) {
+                console.log(err.message);
+                setTimeout(configureHue, 1000);
+            } else {
+                console.log(JSON.stringify(user));
+                console.log('hueIP set as:', hueUser);
+            }
+            
         });
     } else {
-        console.log('hueIP set as:', hueUser);
+        console.log('hueIP already set as:', hueUser);
     }
-
 }
