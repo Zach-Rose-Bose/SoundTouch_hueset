@@ -16,7 +16,7 @@ hue.nupnpSearch(function(err, result) {
 function configureHue() {
     if(hueUser === 'tbd') {    
         hueapi.createUser(hueIP, description, function(err, user) {
-            console.log('user response...')
+            console.log('Awaiting Link Button Press...')
             if (err) {
                 console.log(err.message);
                 setTimeout(configureHue, 1000);
