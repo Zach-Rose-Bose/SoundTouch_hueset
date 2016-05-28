@@ -7,8 +7,6 @@ var hueapi = new hueapiBase();
 
 hue.nupnpSearch(function(err, result) {
     if (err) throw err;
-//     result = JSON.stringify(result)
-    console.log(result[0]);
     hueIP = result[0].ipaddress;
     console.log('hueIP set as:', hueIP);
     console.log('Press button on Hue Bridge now.')
@@ -16,9 +14,9 @@ hue.nupnpSearch(function(err, result) {
 });
 
 function configureHue() {
-    if(hueUser === 'tbd') {
-        console.log('getting user...')
+    if(hueUser === 'tbd') {    
         hueapi.createUser(hueIP, description, function(err, user) {
+            console.log('user response...')
             if (err) throw err;
             console.log(JSON.stringify(user));
         });
