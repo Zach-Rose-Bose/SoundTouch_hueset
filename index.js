@@ -20,10 +20,12 @@ client.on('connect', function(connection) {
     connection.on('message', function(message) {
         if (message.type === 'utf8') {
             parseString(message.utf8Data, function (err, result) {
-                console.log(Object.getOwnPropertyNames(result.updates));
                 if (result.updates && result.updates.hasOwnProperty('nowSelectionUpdated')) {
-                    console.log(result.updates.nowSelectionUpdated[0].preset[0].$.id);
-                    console.log(Object.getOwnPropertyNames(result.updates.nowSelectionUpdated[0].preset[0]));
+                    if(result.updates.nowSelectionUpdated[0].preset[0].$.id == 1) {
+                        console.log('yep, preset 1');
+                    } else {
+                        console.log('not 1, actually is:', result.updates.nowSelectionUpdated[0].preset[0].$.id);
+                    }
                 }
             });
         }
